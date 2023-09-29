@@ -138,7 +138,9 @@ def process_input_value(input_value):
         for ele in months:
                 if news['title'][i] not in news_group and  ele in news['date'][i]:
                     try:
-                        print("fetched news: {}".format(news['title'][i]),flush=True)
+                        print("fetched datetime: {}".format(news['datetime'][i]),flush=True)
+                        print("fetched date: {}".format(news['date'][i]),flush=True)
+                        print('---------------')
                         news_group_sub = {}
                         news_group_sub['title'] = news['title'][i]
                         news_group_sub['datetime'] = news['datetime'][i]
@@ -171,7 +173,6 @@ def process_input_value(input_value):
         group=group+1
     # return json.dumps(news_group.to_dict(), indent = 4) 
     # print('\n Total number of newses:',len(filtered_data),'\n')
-    print('filtered_data:{}',filtered_data)
     return filtered_data
 
 @app.route('/', methods=['GET', 'POST'])
