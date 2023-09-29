@@ -1,3 +1,10 @@
+"""_summary_
+
+nltk.download('stopwords')
+nltk.download('wordnet')
+Returns:
+    _type_: _description_
+"""
 from flask import Flask, request, render_template, jsonify
 import warnings
 warnings.filterwarnings('ignore')
@@ -130,6 +137,7 @@ def process_input_value(input_value):
         for i in range(len(news)):
             for ele in months:
                 if news['title'][i] not in news_group and  ele in news['date'][i]:
+                    print("fetched news: {}".format(news['title'][i]))
                     news_group_sub = {}
                     news_group_sub['title'] = news['title'][i]
                     news_group_sub['datetime'] = news['datetime'][i]
@@ -177,4 +185,4 @@ def process_input():
     return jsonify(error='Input value not provided'), 400
 
 if __name__ == '__main__':
-    app.run(debug=True,host='0.0.0.0',port=5000)
+    app.run(debug=True,host='0.0.0.0',port=8080)
