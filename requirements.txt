@@ -1,0 +1,12 @@
+flask
+pandas
+numpy
+GoogleNews
+datetime
+nltk
+vaderSentiment
+snowflake-connector-python
+re
+calendar
+time
+timeit
