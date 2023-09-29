@@ -138,8 +138,8 @@ def process_input_value(input_value):
         for ele in months:
                 if news['title'][i] not in news_group and  ele in news['date'][i]:
                     try:
-                        print("fetched datetime: {}".format(news['datetime'][i]),flush=True)
-                        print("fetched date: {}".format(news['date'][i]),flush=True)
+                        print("fetched datetime: ",news['datetime'][i],flush=True)
+                        print("fetched date: ",news['date'][i],flush=True)
                         print('---------------')
                         news_group_sub = {}
                         news_group_sub['title'] = news['title'][i]
