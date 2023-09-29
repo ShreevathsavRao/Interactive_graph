@@ -171,6 +171,7 @@ def process_input_value(input_value):
         group=group+1
     # return json.dumps(news_group.to_dict(), indent = 4) 
     # print('\n Total number of newses:',len(filtered_data),'\n')
+    print('filtered_data:{}',filtered_data)
     return filtered_data
 
 @app.route('/', methods=['GET', 'POST'])
