@@ -134,9 +134,9 @@ def process_input_value(input_value):
     news_group = {}
     news = get_news2(end_abbr_date,title,str_abbr_date)
     print('Length of news: {}'.format(len(news)),flush=True)
-    try:
-        for i in range(len(news)):
-            for ele in months:
+    for i in range(len(news)):
+        for ele in months:
+            try:
                 if news['title'][i] not in news_group and  ele in news['date'][i]:
                     print("fetched news: {}".format(news['title'][i]),flush=True)
                     news_group_sub = {}
@@ -150,8 +150,8 @@ def process_input_value(input_value):
                     news_group_sub['site'] = news['site'][i]
                     news_group_sub['sentiment'] = (sentiment.polarity_scores(news['title'][i]))['compound']
                     news_group[(time.mktime(datetime.strptime(str( news['datetime'][i]), '%Y-%m-%d %H:%M:%S').timetuple())+0)*1000] = news_group_sub
-    except:
-        pass
+            except:
+                pass
                 
     # print('Finished {} : {} : {}/{} : {}'.format(i,input_value,count,len(time_stamp), datetime.now()-fun_start_time))
 
@@ -186,4 +186,4 @@ def process_input():
     return jsonify(error='Input value not provided'), 400
 
 if __name__ == '__main__':
-    app.run(debug=False,host='0.0.0.0',port=5000)
+    app.run(debug=True,host='0.0.0.0',port=8080)
