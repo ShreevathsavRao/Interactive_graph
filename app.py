@@ -133,11 +133,12 @@ def process_input_value(input_value):
         
     news_group = {}
     news = get_news2(end_abbr_date,title,str_abbr_date)
+    print('Length of news: {}'.format(len(news)),flush=True)
     try:
         for i in range(len(news)):
             for ele in months:
                 if news['title'][i] not in news_group and  ele in news['date'][i]:
-                    print("fetched news: {}".format(news['title'][i]))
+                    print("fetched news: {}".format(news['title'][i]),flush=True)
                     news_group_sub = {}
                     news_group_sub['title'] = news['title'][i]
                     news_group_sub['datetime'] = news['datetime'][i]
